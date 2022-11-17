@@ -1,0 +1,17 @@
+<div class="container">
+  <app-nav></app-nav>
+  <div class="row">
+    <div class="col-4 mx-auto">
+      <form [formGroup]="frmSource" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="source" class="form-label">Source</label>
+          <input type="text" class="form-control" id="source" formControlName="source">
+          <span class="text-danger" *ngIf="frmSource.errors?.['required']">This field is required</span>
+        </div>
+        <div class="mb-3">
+          <button type="submit" class="btn btn-primary w-100" [disabled]="!frmSource.valid">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
