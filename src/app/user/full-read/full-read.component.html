@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row">
+      <div class="col-12 col-md-8 col-lg-6 mx-auto">
+        <div class="card mb-4">
+          <img src="https://images.unsplash.com/photo-1544716278-e513176f20b5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80" class="card-img-top" style="object-fit: cover; height: 250px;" alt="...">
+          <div class="card-body">
+            <h5 class="card-title pb-3 border-bottom my-3" style='font-size: 2rem; font-weight: bold;'>{{article.title}}</h5>
+            <p class="card-text">{{article.description}}</p>
+          </div>  
+          <div class="card-footer text-end">
+            Written by: <a routerLink="/writer-profile/{{article.sourceId}}" class="btn btn-info text-capitalize" role="button" routerLink="/writer-profile/{{article.source}}">
+              {{writerName}}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

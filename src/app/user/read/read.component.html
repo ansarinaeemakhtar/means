@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-8 col-lg-6 mx-auto">
+      <div class="card mb-4 shadow-sm" *ngFor="let read of reads| paginate
+      : {
+          itemsPerPage: tableSize,
+          currentPage: page,
+          totalItems: count
+        };
+  let i = index">
+        <img src="https://images.unsplash.com/photo-1544716278-e513176f20b5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80" class="card-img-top" style="object-fit: cover; height: 150px;" alt="...">
+        <div class="card-body">
+          <h5 class="card-title text-end pb-3 border-bottom my-3" style='font-size: 2rem; font-weight: bold;'>{{read.title}}</h5>
+          <p class="card-text mb-3">{{read.description}}</p>
+          <a routerLink="/full-read/{{read._id}}" class="btn btn-primary">Read full story</a>
+        </div>
+        <div class="card-footer text-end">
+          Written by: <a routerLink="/writer-profile/{{read.sourceId}}" class="btn btn-info" role="button">
+            <app-writer [writerId]="read.sourceId" class="text-capitalize"></app-writer>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

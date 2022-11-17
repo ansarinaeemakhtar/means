@@ -1,0 +1,24 @@
+<div class="loader-container" *ngIf="_loader.isLoading | async">
+  <app-spinner></app-spinner>
+</div>
+<div class="container">
+    <header class="d-flex container flex-wrap align-items-center justify-content-center justify-content-md-between py-2 mb-3 border-bottom position-fixed top-0 w-100 mx-auto bg-white">
+      <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+        <img src='https://befonts.com/wp-content/uploads/2020/04/logo-for-netflix.jpg' class="img-fluid rounded-5" style="height: 50px;" />
+      </a>
+
+      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <li><a routerLink="/home" routerLinkActive="active" class="nav-link px-2 mx-3 w-75 text-secondary text-center"><span class="material-icons">home</span><br>Home</a></li>
+        <li><a routerLink="/about" routerLinkActive="active" class="nav-link px-2 mx-3 w-75 text-secondary text-center"><span class="material-icons">account_box</span><br>About</a></li>
+        <li><a routerLink="/read" routerLinkActive="active" class="nav-link px-2 mx-3 w-75 text-secondary text-center"><span class="material-icons">perm_phone_msg</span><br>Read</a></li>
+        <li><a routerLink="/contact" routerLinkActive="active" class="nav-link px-2 mx-3 w-75 text-secondary text-center"><span class="material-icons">perm_phone_msg</span><br>Contact</a></li>
+        <li><a routerLink="/admin" routerLinkActive="active" class="nav-link px-2 mx-3 w-75 text-secondary text-center"><span class="material-icons">admin_panel_settings</span><br>Admin</a></li>
+      </ul>
+
+      <div class="col-md-3 text-end">
+        <button type="button" class="btn btn-outline-primary me-2 rounded-5" routerLink="/login" *ngIf="!isLoggedIn()"><span class="material-icons">login</span></button>
+        <button type="button" class="btn btn-outline-primary me-2 rounded-5" routerLink="/logout" *ngIf="isLoggedIn()" (click)="onLogout()"><span class="material-icons">logout</span></button>
+        <button type="button" class="btn btn-primary rounded-5" routerLink="/register" *ngIf="!isLoggedIn()"><span class="material-icons">perm_identity</span></button>
+      </div>
+    </header>
+  </div>
