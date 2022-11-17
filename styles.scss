@@ -1,0 +1,24 @@
+@import 'node_modules/bootstrap/scss/bootstrap.scss';
+@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
+@import 'https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Noto+Nastaliq+Urdu:wght@400;700&family=Open+Sans:wght@400;700&display=swap';
+@import 'https://unpkg.com/mehr/mehr-font.css';
+@import '~ngx-toastr/toastr';
+
+body {
+    font: normal normal 16px/24px 'Open Sans', 'Noto Nastaliq Urdu', serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    padding-top: 120px;
+}
+
+h1, h2, h3, h4, h5, h6,
+.mat-h5, .mat-typography .mat-h5, .mat-typography h5 {
+    font-family: Mehr, 'Lato', sans-serif;
+    line-height: 3rem;
+}
+
+p {
+    font: normal normal 1.25rem/2.5rem Mehr, 'Noto Nastaliq Urdu', serif;
+}
