@@ -1,0 +1,73 @@
+<div class="container">
+  <app-nav></app-nav>
+  <div class="row">
+    <div class="col-6 mx-auto">
+      <form [formGroup]="frmPost" (ngSubmit)="onSubmit()">
+        <h2>Add news</h2>
+        <div class="mb-3">
+          <input type="hidden" formControlName="postId">
+          <label for="title" class="form-label">Title</label>
+          <input type="text" class="form-control" id="title" placeholder="Enter title" formControlName="title">
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label">Paragraph</label>
+          <textarea class="form-control" id="description" rows="3" formControlName="description"></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="image" class="form-label">Image</label>
+          <input class="form-control" type="file" id="image" formControlName="image" (change)="handleUpload($event)">
+        </div>
+        <div class="mb-3" *ngIf="uploadedImage">
+          <img src="{{uploadedImage}}" height="150" />
+        </div>
+        <div class="mb-4">
+          <label for="sourceId" class="form-label">Source</label>
+          <select class="form-select text-capitalize" aria-label="Source" formControlName="sourceId" (change)="setSource($event)">
+            <option value="">Select source</option>
+            <option *ngFor="let source of tempSources" [ngValue]="source._id">{{source.source}}</option>
+          </select>
+          <div class="invalid-feedback" *ngIf="isSubmitted && sourceId?.errors['required']">
+            <sup>*</sup>Please select the source
+          </div>
+        </div>
+        <div class="mb-3 text-end">
+          <button type="submit" class="btn btn-primary me-2" [disabled]="!frmPost.valid">Post</button>
+          <button type="reset" class="btn btn-secondary">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="table-responsive">
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th scope="col">Source</th>
+              <th scope="col">Status</th>
+              <th scope="col">Image</th>
+              <th scope="col">Description</th>
+              <th scope="col">Title</th>
+              <th scope="col">#</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let post of posts; index as i">
+              <td><app-source [id]="post.sourceId"></app-source></td>
+              <td>{{post.status}}</td>
+              <td><img src='{{post.image}}' height='50' /></td>
+              <td>{{post.description}}</td>
+              <td>{{post.title}}</td>
+              <td>{{i+1}}</td>
+              <td>
+                <button class="text-danger border-0" (click)="onDelete(post._id)"><span class="material-icons">delete</span></button>
+                <button class="text-infor border-0" (click)="onEdit(post._id)"><span class="material-icons">edit</span></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
